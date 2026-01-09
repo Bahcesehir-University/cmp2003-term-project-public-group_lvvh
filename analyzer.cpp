@@ -33,7 +33,7 @@ void TripAnalyzer::ingestFile(const std::string& csvPath) {
                 }
                 
                 zone_counts[fields[1]]++;  
-                slot_counts[{fields[1], std::stoi(fields[3].substr(11, 2))}]++;
+                slot_counts[{fields[1], std::stoi(fields[2].substr(11, 2))}]++;
             }
         }
         catch(const std::exception& e) {
