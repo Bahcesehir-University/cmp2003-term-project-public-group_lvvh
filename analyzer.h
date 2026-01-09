@@ -1,6 +1,29 @@
 #pragma once
+// ===================== YOUR LIBRARY IMPORTS =====================
+#include <map>
+#include <set>
+#include <list>
+#include <cmath>
+#include <ctime>
+#include <deque>
+#include <queue>
+#include <stack>
 #include <string>
+#include <bitset>
+#include <cstdio>
+#include <limits>
 #include <vector>
+#include <climits>
+#include <cstring>
+#include <cstdlib>
+#include <fstream>
+#include <numeric>
+#include <sstream>
+#include <iostream>
+#include <algorithm>
+#include <unordered_map>
+// ===================== analyzer.h (inlined) =====================
+using namespace std;
 
 struct ZoneCount {
     std::string zone;
@@ -9,18 +32,20 @@ struct ZoneCount {
 
 struct SlotCount {
     std::string zone;
-    int hour;              // 0–23
+    int hour;
     long long count;
 };
 
+
 class TripAnalyzer {
 public:
-    // Parse Trips.csv, skip dirty rows, never crash
-    void ingestFile(const std::string& csvPath);
+    void ingestStdin();
+    void TripAnalyzer::ingestFile(const std::string& csvPath)
 
-    // Top K zones: count desc, zone asc
+    std::unordered_map<std::string, long long> zone_counts;
+    std::map<std::pair<std::string, int>, long long> slot_counts;
+
     std::vector<ZoneCount> topZones(int k = 10) const;
 
-    // Top K slots: count desc, zone asc, hour asc
     std::vector<SlotCount> topBusySlots(int k = 10) const;
 };
