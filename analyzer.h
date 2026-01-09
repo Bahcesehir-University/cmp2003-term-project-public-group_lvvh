@@ -40,7 +40,7 @@ struct SlotCount {
 class TripAnalyzer {
 public:
     void ingestStdin();
-    void ingestFile(const std::string& csvPath)
+    void ingestFile(const std::string& csvPath);
 
     std::unordered_map<std::string, long long> zone_counts;
     std::map<std::pair<std::string, int>, long long> slot_counts;
