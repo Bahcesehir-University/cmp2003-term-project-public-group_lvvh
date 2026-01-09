@@ -11,7 +11,7 @@ void TripAnalyzer::ingestFile(const std::string& csvPath) {
     
     std::string line;
     
-    std::getline(file, line);
+    std::getline(file, line)
     
     while (std::getline(file, line)) {
         std::stringstream ss(line);
@@ -27,8 +27,8 @@ void TripAnalyzer::ingestFile(const std::string& csvPath) {
                 fields.push_back(field);
             }
             
-            if (fields.size() == 6) {
-                if (fields[3].length() < 16) {
+            if (fields.size() == 3) {
+                if (fields[2].length() < 16) {
                     continue;
                 }
                 
@@ -123,4 +123,3 @@ vector<SlotCount> TripAnalyzer::topBusySlots(int k) const {
     
     return slots;
 }
-
