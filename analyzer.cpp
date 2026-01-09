@@ -11,7 +11,7 @@ void TripAnalyzer::ingestFile(const std::string& csvPath) {
     
     std::string line;
     
-    std::getline(file, line)
+    std::getline(file, line);
     
     while (std::getline(file, line)) {
         std::stringstream ss(line);
