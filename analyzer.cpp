@@ -28,7 +28,7 @@ void TripAnalyzer::ingestFile(const std::string& csvPath) {
             }
             
             if (fields.size() == 3) {
-                if (fields[2].length() < 16) {
+                if (fields[1].empty() || fields[2].length() < 16) {
                     continue;
                 }
                 
